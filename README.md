@@ -29,6 +29,7 @@ export class ApiConfig {
       throw error;
     }
   }
+  
   async getImageDetails(id: number | string): Promise<any> {
     try {
       const response = await this.http.get<any>(`${this.mainURL}/id/${id}/info`).toPromise();
@@ -38,6 +39,7 @@ export class ApiConfig {
       throw error;
     }
   }
+  
   async getNextPage(pageNumber: Number): Promise<any> {
     try {
       const response = await this.http.get<any>(`${this.apiURL}?page=${pageNumber}`).toPromise();
