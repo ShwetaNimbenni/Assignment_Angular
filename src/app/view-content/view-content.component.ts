@@ -22,7 +22,6 @@ export class ViewContentComponent {
     async ngOnInit(): Promise<void> {
       try {
         this.imageData = await this.apiService.getData();
-        console.log('Data:', this.imageData);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
