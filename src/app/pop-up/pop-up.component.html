@@ -1,0 +1,30 @@
+<div class="popup-overlay" (click)="close()">
+    <ng-container *ngIf="imgDetails !== undefined">
+    <div class="popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <button type="button" class="close" (click)="close()">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <ng-container *ngIf="!isLoaded">
+                <div class="loader"></div>
+            </ng-container>
+            <ng-container *ngIf="isLoaded">
+            <div class="popup-body">
+                <div id="popup_img" class="img" [ngStyle]="{'background-image' : 'url('+ imgDetails.download_url +')'}"></div>
+                <h4>Author : {{imgDetails.author}}</h4>
+                <h4>Id : {{imgDetails.id}}</h4>
+                <h4>Height : {{imgDetails.height}}</h4>
+                <h4>Width : {{imgDetails.width}}</h4>
+                <h4>View Url : {{imgDetails.url}}</h4>
+                <h4>Download Url : {{imgDetails.download_url}}</h4>
+            </div>
+            <div class="popup-footer">
+                <button type="button" (click)="close()">Go Back</button>
+            </div>
+            </ng-container>
+        </div>
+    </div>
+    </ng-container>
+</div>

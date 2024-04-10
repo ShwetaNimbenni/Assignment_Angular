@@ -1,0 +1,18 @@
+<div class="paper">
+    <div class="cards-grid">
+        <div *ngFor="let image of imageData; index as i" style="align-items: center;">
+            <div class="card" type="button" (click)="openPopup(image.id)">
+                <div class="img" [ngStyle]="{'background-image' : 'url('+ image.download_url +')'}"></div>
+                <h5>{{image.author}}</h5>
+            </div>
+        </div>
+    </div>
+    <div style="display: flex; flex-flow: row; margin: 0 40% 0 40%">
+        <button class="btn" (click)="pagination('prev')">Back</button>
+        <div class="pgNo">
+            {{pageNo}}
+        </div>
+        <button class="btn" (click)="pagination('next')">Next</button>
+    </div>
+    <app-pop-up *ngIf="isPopupOpen" (closePopup)="closePopup()" [imgDetails]="imageObject" [isLoaded]="hasDetails"></app-pop-up>
+   </div>
